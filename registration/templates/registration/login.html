@@ -9,6 +9,9 @@
             <div class="col-md-9 mx-auto mb-5">
             <form action="" method="post">{% csrf_token %}
                 <h3 class="mb-4">Iniciar sesión</h3>
+                {% if 'register' in request.GET %}
+                    <p>Usuario registrado con éxito. Ya puedes iniciar sesión.</p>
+                {% endif %}
                 {% if form.non_field_errors %}
                 <p style="color:red">Usuario o contraseña incorrectos, prueba de nuevo.</p>
                 {% endif %}
