@@ -5,5 +5,7 @@ from pages.urls import pages_patterns
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('core.urls')),
-    path('pages/', include(pages_patterns))
+    path('pages/', include(pages_patterns)),
+    # Paths de auth
+    path('accounts/', include('django.contrib.auth.urls'))
 ]
