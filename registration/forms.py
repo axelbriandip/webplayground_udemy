@@ -9,3 +9,10 @@ class UserCreationFormWithEmail(UserCreationForm):
         model = User
         # Esto funciona porque User ya tiene un campo 'email', sino no.
         fields = ("username", "email", "password1", "password2")
+
+    # unificar emails
+    def clean_email(self):
+        email = self.cleaned_data.get("email")
+        if User.objects.filter(email=email).exists():
+            raise forms.ValidationError("El email ya está registrado, intente con otro.")
+        return email
