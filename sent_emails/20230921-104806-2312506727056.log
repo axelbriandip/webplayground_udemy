@@ -1,0 +1,25 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: =?utf-8?q?Contrase=C3=B1a_restablecida_en_localhost=3A8000?=
+From: webmaster@localhost
+To: axel@gmail.com
+Date: Thu, 21 Sep 2023 13:48:06 -0000
+Message-ID: <169530408683.6956.14983942195923188662@ZUNY>
+
+
+Ha recibido este correo electrónico porque ha solicitado restablecer la contraseña para su cuenta en localhost:8000.
+
+Por favor, vaya a la página siguiente y escoja una nueva contraseña.
+
+http://localhost:8000/accounts/reset/MQ/buvi06-8bc30f50b2e920db89deb7208215157c/
+
+Su nombre de usuario, en caso de que lo haya olvidado: axel
+
+¡Gracias por usar nuestro sitio!
+
+El equipo de localhost:8000
+
+
+
+-------------------------------------------------------------------------------
