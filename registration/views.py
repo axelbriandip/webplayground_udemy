@@ -2,6 +2,9 @@ from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
 from django import forms
 from .forms import CreateUserWithEmail
+from django.views.generic.base import TemplateView
+from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 class SignUpView(CreateView):
@@ -26,3 +29,7 @@ class SignUpView(CreateView):
     # Hacer de esta manera xq quiero agregar el "?register", sino sería simpeltemnte "success_url = ..."
     def get_success_url(self):
         return reverse_lazy('login') + '?register'
+
+@method_decorator(login_required, name='dispatch')
+class ProfileUpdate(TemplateView):
+    template_name = "registration/profile_form.html"
