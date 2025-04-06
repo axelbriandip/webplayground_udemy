@@ -17,6 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from pages.urls import pages_patterns
+from registration.urls import registration_patterns
 
 urlpatterns = [
     path('', include('core.urls')),
@@ -24,4 +25,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # paths auth
     path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/', include(registration_patterns)),
 ]
