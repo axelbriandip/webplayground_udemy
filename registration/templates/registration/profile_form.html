@@ -1,0 +1,36 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Perfil{% endblock %}
+{% block content %}
+<style>.errorlist{color:red;} label{display:none}</style>
+<main role="main">
+  <div class="container">
+    <div class="row mt-3">
+      <div class="col-md-9 mx-auto mb-5">
+        <form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
+        {% comment %} 'enctype' sirve para avisar que vamos a enviar imagenes o ficheros {% endcomment %}
+          <div class="row">
+            <!-- Previa del profile_picture -->
+            <div class="col-md-2">
+              {% if request.user.profile.profile_picture %}
+                <img src="{{request.user.profile.profile_picture.url}}" class="img-fluid">
+                <p class="mt-1">¿Borrar? <input type="checkbox" id="profile_picture-clear" name="profile_picture-clear" /></p>
+              {% else %}
+                <img src="{% static 'registration/imgs/no-avatar.jpg' %}" class="img-fluid">
+              {% endif %}
+            </div>
+            <!-- Formulario -->
+            <div class="col-md-10">
+              <h3>Perfil</h3>
+              <input type="file" name="profile_picture" class="form-control-file mt-3" id="id_profile_picture">
+              {{ form.bio }}
+              {{ form.link }}
+              <input type="submit" class="btn btn-primary btn-block mt-3" value="Actualizar">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}

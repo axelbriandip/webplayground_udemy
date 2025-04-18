@@ -1,7 +1,12 @@
 from .forms import UserCreationFormWithEmail
 from django.views.generic import CreateView
+from django.views.generic.edit import UpdateView
 from django.urls import reverse_lazy
 from django import forms
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
+from .models import Profile
+from .forms import ProfileUpdateForm
 
 # Create your views here.
 class SignUpView(CreateView):
@@ -24,3 +29,14 @@ class SignUpView(CreateView):
         form.fields['password1'].label = ''
         form.fields['password2'].label = ''
         return form
+
+@method_decorator(login_required, name='dispatch')
+class ProfileUpdateView(UpdateView):
+    form_class = ProfileUpdateForm
+    success_url = reverse_lazy('registration:profile')
+    template_name = 'registration/profile_form.html'
+
+    def get_object(self):
+        # recuperar el objeto a editar
+        profile, created = Profile.objects.get_or_create(user=self.request.user)
+        return profile
