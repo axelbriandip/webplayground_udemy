@@ -26,7 +26,8 @@
               {{ form.bio }}
               {{ form.link }}
               <input type="email" class="form-control mt-3" placeholder="Ingresar email" value="{{ request.user.email }}" readonly>
-              <p>Si desea modificar el email haga <a href="{% url 'registration:profile_email_update' %}">click aquí</a></p>
+              <p>Si desea modificar el email haga click <a href="{% url 'registration:profile_email_update' %}">aquí</a>.</p>
+              <p>Si desea modificar la contraseña haga click <a href="{% url 'password_change' %}">aquí</a>.</p>
               <input type="submit" class="btn btn-primary btn-block mt-3" value="Actualizar">
             </div>
           </div>
