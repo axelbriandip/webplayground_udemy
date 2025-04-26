@@ -25,6 +25,8 @@
               <input type="file" name="profile_picture" class="form-control-file mt-3" id="id_profile_picture">
               {{ form.bio }}
               {{ form.link }}
+              <input type="email" class="form-control mt-3" placeholder="Ingresar email" value="{{ request.user.email }}" readonly>
+              <p>Si desea modificar el email haga <a href="{% url 'registration:profile_email_update' %}">click aquí</a></p>
               <input type="submit" class="btn btn-primary btn-block mt-3" value="Actualizar">
             </div>
           </div>
