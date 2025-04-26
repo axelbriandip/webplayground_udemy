@@ -15,6 +15,9 @@ class Profile(models.Model):
     profile_picture = models.ImageField(upload_to=custom_profile_picture_path, blank=True, null=True)
     link = models.URLField(blank=True, null=True)
 
+    class Meta:
+        ordering = ['user__username']
+
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, **kwargs):
     if kwargs.get('created', False):
