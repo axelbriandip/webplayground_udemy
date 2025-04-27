@@ -22,4 +22,4 @@ class Profile(models.Model):
 def create_user_profile(sender, instance, **kwargs):
     if kwargs.get('created', False):
         Profile.objects.get_or_create(user=instance)
-        print("Profile created for user:", instance.username)
+        # print("Profile created for user:", instance.username)
